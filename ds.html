@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitalidade Dourada - Suplemento para Vitalidade Sênior</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff5e00;
+            --secondary: #ffd000;
+            --accent: #ff2a00;
+            --dark: #000;
+            --darker: #111;
+            --light: #fff;
+            --gray: #aaa;
+            --card-bg: rgba(30, 30, 30, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(20, 20, 20, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 5px 15px rgba(255, 94, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 94, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--dark);
+            box-shadow: 0 0 15px rgba(255, 94, 0, 0.5);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255, 94, 0, 0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: radial-gradient(circle at center, rgba(30,30,30,0.8) 0%, rgba(0,0,0,0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920') center/cover;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,94,0,0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255, 94, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--light);
+        }
+        
+        .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: var(--light);
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 94, 0, 0.4);
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 42, 0, 0.6);
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::after {
+            opacity: 1;
+        }
+        
+        /* Benefícios */
+        .benefits {
+            padding: 100px 0;
+            background: radial-gradient(circle at top left, rgba(40,40,40,0.8) 0%, transparent 40%),
+                        radial-gradient(circle at bottom right, rgba(40,40,40,0.8) 0%, transparent 40%);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--light);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 30px auto 60px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 94, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 94, 0, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 94, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            border: 1px solid rgba(255, 94, 0, 0.3);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .benefit-card p {
+            color: var(--light);
+            margin-bottom: 25px;
+        }
+        
+        /* Ingredientes */
+        .ingredients {
+            padding: 100px 0;
+            background: radial-gradient(circle at center, var(--darker) 0%, var(--dark) 100%);
+            border-top: 1px solid rgba(255, 94, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 94, 0, 0.2);
+        }
+        
+        .ingredients-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .ingredients-text {
+            flex: 1;
+        }
+        
+        .ingredients-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .ingredients-list {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .ingredients-list li {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .ingredients-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border: 5px solid rgba(255, 94, 0, 0.2);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: radial-gradient(circle at top right, rgba(40,40,40,0.8) 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(40,40,40,0.8) 0%, transparent 40%);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 94, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .client-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        .client-info h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+        
+        .client-info p {
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-content {
+            color: var(--light);
+            font-style: italic;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .stars {
+            color: var(--secondary);
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* Offer */
+        .offer {
+            padding: 100px 0;
+            background: radial-gradient(circle at center, rgba(20,20,20,0.9) 0%, rgba(0,0,0,0.95) 100%);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,94,0,0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .offer-box {
+            background: linear-gradient(135deg, rgba(30,30,30,0.8) 0%, rgba(50,50,50,0.6) 100%);
+            border-radius: 15px;
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(255, 94, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .offer-box:before {
+            content: 'OFERTA ESPECIAL';
+            position: absolute;
+            top: 20px;
+            right: -50px;
+            background: var(--accent);
+            color: white;
+            padding: 10px 60px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+        
+        .offer-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 208, 0, 0.3);
+        }
+        
+        .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(255, 208, 0, 0.3);
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.8rem;
+        }
+        
+        .guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            background: rgba(255, 94, 0, 0.1);
+            padding: 15px;
+            border-radius: 50px;
+            max-width: 400px;
+            margin: 30px auto;
+            border: 1px solid rgba(255, 94, 0, 0.3);
+        }
+        
+        .guarantee i {
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 50px 0 30px;
+            background: #111;
+            color: #aaa;
+            border-top: 1px solid rgba(255, 94, 0, 0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #aaa;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .disclaimer {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            border: 1px solid rgba(255, 94, 0, 0.2);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 100;
+            animation: pulse-green 2s infinite;
+            text-decoration: none;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .ingredients-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .offer-box {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Animações */
+        @keyframes pulse-green {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20comprar%20o%20Vitalidade%20Dourada" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="logo-text">Vitalidade Dourada</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#benefits">Benefícios</a></li>
+                        <li><a href="#ingredients">Ingredientes</a></li>
+                        <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#offer">Oferta</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>REDESCUBRA SUA ENERGIA E VITALIDADE!</h1>
+            <p>O <span class="highlight">Vitalidade Dourada</span> é a solução revolucionária desenvolvida especialmente para ajudar pessoas na melhor idade a recuperarem sua disposição e bem-estar.</p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20comprar%20o%20Vitalidade%20Dourada" class="cta-button" target="_blank">
+                <i class="fas fa-bolt"></i> COMPRAR AGORA
+            </a>
+            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 1.1rem;">
+                    <i class="fas fa-check-circle" style="color: var(--primary);"></i>
+                    <span>100% Natural</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 1.1rem;">
+                    <i class="fas fa-check-circle" style="color: var(--primary);"></i>
+                    <span>Resultados Rápidos</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px; font-size: 1.1rem;">
+                    <i class="fas fa-check-circle" style="color: var(--primary);"></i>
+                    <span>Entrega Imediata</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">BENEFÍCIOS EXCLUSIVOS</h2>
+            <p class="section-subtitle">Transforme seu dia a dia com nossa fórmula revolucionária</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Energia Explosiva</h3>
+                    <p>Disposição renovada para aproveitar cada momento com intensidade.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Circulação Ativa</h3>
+                    <p>Fluxo sanguíneo otimizado para todo o corpo e áreas específicas.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Foco Mental</h3>
+                    <p>Clareza de pensamentos e concentração renovada.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Libido Elevada</h3>
+                    <p>Desejo e desempenho renovados para uma vida íntima plena.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3>Bem-Estar Geral</h3>
+                    <p>Melhora do humor e sensação de vitalidade em todo o corpo.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Resistência Fortalecida</h3>
+                    <p>Organismo mais forte e preparado para desafios diários.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredientes -->
+    <section id="ingredients" class="ingredients">
+        <div class="container">
+            <h2 class="section-title">FÓRMULA PODEROSA</h2>
+            <p class="section-subtitle">Combinação exclusiva de ingredientes naturais</p>
+            
+            <div class="ingredients-content">
+                <div class="ingredients-text">
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">O Vitalidade Dourada contém uma seleção premium de ingredientes naturais com propriedades cientificamente comprovadas para revitalização corporal e mental.</p>
+                    
+                    <ul class="ingredients-list">
+                        <li><strong>Ginseng Brasileiro (Pfaffia Paniculata)</strong> - Revitalizador natural e energético</li>
+                        <li><strong>Marapuama</strong> - Conhecida como "Viagra da Amazônia"</li>
+                        <li><strong>Catuaba</strong> - Estimulante natural com efeitos comprovados</li>
+                        <li><strong>Maca Peruana</strong> - Aumenta energia e resistência física</li>
+                        <li><strong>Tribulus Terrestris</strong> - Eleva os níveis de testosterona naturalmente</li>
+                        <li><strong>Zinco Quelato</strong> - Essencial para produção hormonal</li>
+                        <li><strong>Vitamina E</strong> - Antioxidante poderoso para proteção celular</li>
+                    </ul>
+                </div>
+                <div class="ingredients-image">
+                    <img src="ChatGPT Image 19 de jul. de 2025, 00_35_36.png" alt="Suplemento Vitalidade Dourada" class="product-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">HISTÓRIAS REAIS</h2>
+            <p class="section-subtitle">O que nossos clientes dizem sobre a transformação</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">C</div>
+                        <div class="client-info">
+                            <h4>Carlos, 68 anos</h4>
+                            <p>Aposentado - São Paulo</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        "Depois de começar a tomar o Vitalidade Dourada, minha vida mudou completamente. Recuperei a energia que tinha aos 50 anos e minha esposa não poderia estar mais feliz!"
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">M</div>
+                        <div class="client-info">
+                            <h4>Maria, 72 anos</h4>
+                            <p>Professora Aposentada - Rio de Janeiro</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        "Havia anos que não me sentia tão viva! O Vitalidade Dourada me deu uma nova perspectiva de vida e meu marido está adorando essa nova versão de mim!"
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">R</div>
+                        <div class="client-info">
+                            <h4>Roberto, 70 anos</h4>
+                            <p>Engenheiro Aposentado - Belo Horizonte</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        "Sempre fui ativo, mas depois dos 65 comecei a sentir o peso da idade. Com o Vitalidade Dourada, recuperei minha vitalidade e minha vida íntima está melhor que nunca!"
+                    </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oferta -->
+    <section id="offer" class="offer">
+        <div class="container">
+            <div class="offer-box">
+                <h2>OFERTA EXCLUSIVA POR TEMPO LIMITADO</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 20px;">Sua jornada para uma vida com mais vitalidade começa aqui!</p>
+                
+                <div style="display: flex; justify-content: center; gap: 20px; margin: 30px 0;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.2rem; margin-bottom: 10px;">Preço Normal</div>
+                        <div class="old-price">R$ 297,00</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.2rem; margin-bottom: 10px;">Preço Promocional</div>
+                        <div class="price">R$ 197,00</div>
+                    </div>
+                </div>
+                
+                <div class="guarantee">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <strong>Garantia de Satisfação</strong><br>
+                        30 dias ou seu dinheiro de volta
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20comprar%20o%20Vitalidade%20Dourada" class="cta-button" target="_blank">
+                    <i class="fas fa-bolt"></i> QUERO MAIS VITALIDADE!
+                </a>
+                
+                <p style="margin-top: 30px; font-size: 0.9rem; color: #aaa;">*Frete grátis para todo o Brasil</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Vitalidade Dourada</h3>
+                    <p style="margin-bottom: 20px;">Suplemento premium para vitalidade e bem-estar na melhor idade.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(11) 99999-9999</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>(11) 99999-9999</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Av. Paulista, 1000 - São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#benefits"><i class="fas fa-chevron-right"></i> Benefícios</a></li>
+                        <li><a href="#ingredients"><i class="fas fa-chevron-right"></i> Ingredientes</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Depoimentos</a></li>
+                        <li><a href="#offer"><i class="fas fa-chevron-right"></i> Oferta</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Formas de Pagamento</h3>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;">
+                        <div style="background: rgba(50,50,50,0.5); padding: 10px; border-radius: 5px; text-align: center;">
+                            <i class="fab fa-cc-visa" style="font-size: 2rem; color: var(--light);"></i>
+                        </div>
+                        <div style="background: rgba(50,50,50,0.5); padding: 10px; border-radius: 5px; text-align: center;">
+                            <i class="fab fa-cc-mastercard" style="font-size: 2rem; color: var(--light);"></i>
+                        </div>
+                        <div style="background: rgba(50,50,50,0.5); padding: 10px; border-radius: 5px; text-align: center;">
+                            <i class="fab fa-cc-amex" style="font-size: 2rem; color: var(--light);"></i>
+                        </div>
+                        <div style="background: rgba(50,50,50,0.5); padding: 10px; border-radius: 5px; text-align: center;">
+                            <i class="fas fa-barcode" style="font-size: 2rem; color: var(--light);"></i>
+                        </div>
+                        <div style="background: rgba(50,50,50,0.5); padding: 10px; border-radius: 5px; text-align: center;">
+                            <i class="fab fa-pix" style="font-size: 2rem; color: var(--light);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <p><strong>Importante:</strong> Os resultados podem variar de pessoa para pessoa. Este produto não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença. Consulte sempre um profissional de saúde antes de iniciar qualquer novo suplemento. As informações contidas neste site são baseadas em pesquisas e tradições populares, mas não substituem o aconselhamento médico profissional.</p>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Vitalidade Dourada. Todos os direitos reservados. CNPJ: 00.000.000/0001-00
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Contador para oferta
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contador regressivo
+            const countdownElement = document.createElement('div');
+            countdownElement.style.background = 'var(--accent)';
+            countdownElement.style.color = 'white';
+            countdownElement.style.padding = '15px';
+            countdownElement.style.borderRadius = '50px';
+            countdownElement.style.fontWeight = '700';
+            countdownElement.style.marginTop = '30px';
+            countdownElement.style.display = 'inline-block';
+            
+            const offerSection = document.querySelector('.offer-box');
+            offerSection.appendChild(countdownElement);
+            
+            // Configurar data final (24 horas a partir de agora)
+            const countDownDate = new Date();
+            countDownDate.setHours(countDownDate.getHours() + 24);
+            
+            // Atualizar contador a cada segundo
+            const countdownFunction = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+                
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                countdownElement.innerHTML = `OFERTA TERMINA EM: ${hours}h ${minutes}m ${seconds}s`;
+                
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    countdownElement.innerHTML = "OFERTA EXPIRADA!";
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
